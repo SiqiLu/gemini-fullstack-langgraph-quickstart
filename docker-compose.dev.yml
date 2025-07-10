@@ -1,0 +1,9 @@
+# docker-compose.dev.yml  ——  开发叠加层
+services:
+  langgraph-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment: null                # 清空父级所有键
+    env_file:
+      - ./env/.env.dev               # GEMINI_API_KEY / POSTGRES_URI / …

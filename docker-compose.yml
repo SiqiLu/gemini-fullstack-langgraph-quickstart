@@ -5,6 +5,8 @@ services:
   langgraph-redis:
     image: docker.io/redis:6
     container_name: langgraph-redis
+    ports:
+      - "6379:6379"
     healthcheck:
       test: redis-cli ping
       interval: 5s
@@ -14,7 +16,7 @@ services:
     image: docker.io/postgres:16
     container_name: langgraph-postgres
     ports:
-      - "5433:5432"
+      - "15432:5432"
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
